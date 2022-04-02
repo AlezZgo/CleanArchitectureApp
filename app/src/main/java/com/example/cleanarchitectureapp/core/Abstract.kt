@@ -1,6 +1,6 @@
 package com.example.cleanarchitectureapp.core
 
-interface Abstract {
+abstract class Abstract {
 
     interface Object<T,M: Mapper>{
         fun map(mapper: M): T
