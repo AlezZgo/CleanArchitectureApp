@@ -16,6 +16,15 @@ class AbstractTest{
         assertTrue(domainObject is TestDomainObject.Success)
     }
 
+    @Test
+    fun `test fail`(){
+        val dataObject = TestDataObject.Fail(IOException())
+
+        val domainObject = dataObject.map(DataToDomainMapper.Base())
+
+        assertTrue(domainObject is TestDomainObject.Fail)
+    }
+
     private sealed class TestDataObject: Abstract.Object<TestDomainObject, DataToDomainMapper> {
         abstract override fun map(mapper: DataToDomainMapper): TestDomainObject
 
