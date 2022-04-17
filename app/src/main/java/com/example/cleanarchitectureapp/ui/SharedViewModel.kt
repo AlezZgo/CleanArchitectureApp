@@ -17,6 +17,9 @@ class SharedViewModel() : ViewModel() {
 
     fun load() {
         dispatcher.apply {
+
+            liveData.value = InfoDomain.Loading
+
             doBackground(viewModelScope){
                 val result = interactor.info()
                 doUi(viewModelScope){

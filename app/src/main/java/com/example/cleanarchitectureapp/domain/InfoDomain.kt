@@ -20,4 +20,8 @@ sealed class InfoDomain  {
         override fun toUi() = InfoUi.Failure(errorMessage)
     }
 
+    object Loading : InfoDomain() {
+        override fun toUi() = InfoUi.Loading
+    }
+
 }
