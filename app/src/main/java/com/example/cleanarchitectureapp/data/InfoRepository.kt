@@ -1,12 +1,17 @@
 package com.example.cleanarchitectureapp.data
 
 import com.example.cleanarchitectureapp.domain.InfoDomain
+import kotlinx.coroutines.delay
 
 interface InfoRepository {
 
-    fun info(): InfoDomain
+    suspend fun info(): InfoDomain
 
     class TestSuccess : InfoRepository {
-        override fun info() = InfoDomain.Success("It is", "\nSuccess!")
+        override suspend fun info(): InfoDomain {
+            delay(2000)
+            return InfoDomain.Success("It is", "\nSuccess!")
+        }
     }
+
 }

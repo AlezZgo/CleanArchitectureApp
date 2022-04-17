@@ -4,9 +4,9 @@ import com.example.cleanarchitectureapp.data.InfoRepository
 
 interface InfoInteractor {
 
-    fun info(): InfoDomain
+    suspend fun info(): InfoDomain
 
     class Base(private val repository: InfoRepository) : InfoInteractor {
-        override fun info() = repository.info()
+        override suspend fun info() = repository.info()
     }
 }
