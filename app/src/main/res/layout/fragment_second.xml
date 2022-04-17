@@ -4,13 +4,22 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".ui.FirstFragment">
 
     <ImageView
         android:id="@+id/fragment_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="24dp"
+        android:src="@drawable/wait1" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        android:src="@drawable/wait2" />
+        android:text="Second text"
+        android:textSize="24sp" />
 
 </LinearLayout>
