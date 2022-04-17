@@ -1,14 +1,12 @@
 package com.example.cleanarchitectureapp.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.cleanarchitectureapp.R
 import com.example.cleanarchitectureapp.databinding.FragmentFirstBinding
-import com.example.cleanarchitectureapp.databinding.FragmentSecondBinding
 
 class FirstFragment : Fragment() {
 
@@ -20,8 +18,8 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentFirstBinding.inflate(inflater)
-        sharedViewModel.text.observe(viewLifecycleOwner){
-            binding.textView.text = it
+        sharedViewModel.liveData.observe(viewLifecycleOwner){
+            it.toUi().show(binding.fragmentImage,binding.textView)
         }
         return binding.root
     }

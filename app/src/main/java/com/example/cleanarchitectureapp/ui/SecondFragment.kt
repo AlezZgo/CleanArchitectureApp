@@ -18,8 +18,8 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentSecondBinding.inflate(inflater)
-        sharedViewModel.text.observe(viewLifecycleOwner){
-            binding.textView.text = it
+        sharedViewModel.liveData.observe(viewLifecycleOwner){
+            it.toUi().show(binding.fragmentImage,binding.textView)
         }
         return binding.root
     }

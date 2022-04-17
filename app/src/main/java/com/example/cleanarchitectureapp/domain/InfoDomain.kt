@@ -1,14 +1,23 @@
 package com.example.cleanarchitectureapp.domain
 
-sealed class InfoDomain {
+import com.example.cleanarchitectureapp.core.Abstract
+import com.example.cleanarchitectureapp.ui.InfoUi
+
+sealed class InfoDomain  {
+
+    abstract fun toUi() : InfoUi
 
     data class Success(
         private val first: String,
         private val second: String,
-    ): InfoDomain()
+    ): InfoDomain() {
+        override fun toUi() = InfoUi.Success("$first $second")
+    }
 
     data class Failure(
         private val errorMessage: String,
-    ): InfoDomain()
+    ): InfoDomain() {
+        override fun toUi() = InfoUi.Failure(errorMessage)
+    }
 
 }
