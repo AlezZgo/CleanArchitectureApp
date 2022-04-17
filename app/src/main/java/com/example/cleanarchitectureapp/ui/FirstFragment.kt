@@ -18,8 +18,8 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentFirstBinding.inflate(inflater)
-        sharedViewModel.liveData.observe(viewLifecycleOwner){
-            it.toUi().show(binding.fragmentImage,binding.textView)
+        sharedViewModel.observe(viewLifecycleOwner){
+            it.show(binding.fragmentImage,binding.textView)
         }
         return binding.root
     }

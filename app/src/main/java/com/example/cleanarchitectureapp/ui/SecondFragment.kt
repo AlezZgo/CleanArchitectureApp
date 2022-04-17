@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import com.example.cleanarchitectureapp.databinding.FragmentFirstBinding
 import com.example.cleanarchitectureapp.databinding.FragmentSecondBinding
 
 class SecondFragment : Fragment() {
@@ -18,8 +19,8 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentSecondBinding.inflate(inflater)
-        sharedViewModel.liveData.observe(viewLifecycleOwner){
-            it.toUi().show(binding.fragmentImage,binding.textView)
+        sharedViewModel.observe(viewLifecycleOwner){
+            it.show(binding.fragmentImage,binding.textView)
         }
         return binding.root
     }

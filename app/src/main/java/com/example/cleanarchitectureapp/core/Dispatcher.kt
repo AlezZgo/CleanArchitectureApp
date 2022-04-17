@@ -1,4 +1,4 @@
-package com.example.cleanarchitectureapp.ui
+package com.example.cleanarchitectureapp.core
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
