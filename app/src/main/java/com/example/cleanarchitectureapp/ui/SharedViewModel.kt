@@ -9,7 +9,7 @@ class SharedViewModel : BaseViewModel<InfoUi>(
     InfoCommunication(),
     Dispatcher.Base()
 ) {
-    private val interactor = InfoInteractor.Base(InfoRepository.TestSuccess())
+    private val interactor = InfoInteractor.Base(InfoRepository.TestFailure())
 
     fun load() {
         communication.postValue(InfoUi.Loading)
