@@ -20,6 +20,9 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentFirstBinding.inflate(inflater)
+        sharedViewModel.text.observe(viewLifecycleOwner){
+            binding.textView.text = it
+        }
         return binding.root
     }
 
